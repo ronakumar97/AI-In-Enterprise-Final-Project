@@ -1,4 +1,4 @@
-import algorithms
+import models
 from newspaper import Article
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
@@ -16,26 +16,26 @@ def summarize_url(algorithm, text_input):
     parser = PlaintextParser.from_string(text_input.text, Tokenizer("english"))
 
     if(algorithm == 'stopwords'):
-        return algorithms.fit(text_input.text)
+        return models.fit(text_input.text)
     elif(algorithm == 'lexrank'):
-        return algorithms.lex_rank(parser)
+        return models.lex_rank(parser)
     elif (algorithm == 'luhn'):
-        return algorithms.luhn(parser)
+        return models.luhn(parser)
     elif (algorithm == 'lsa'):
-        return algorithms.lsa(parser)
+        return models.lsa(parser)
 
 
 def summarize_text(algorithm, text_input):
     parser = PlaintextParser.from_string(text_input, Tokenizer("english"))
 
     if (algorithm == 'stopwords'):
-        return algorithms.fit(text_input)
+        return models.fit(text_input)
     elif (algorithm == 'lexrank'):
-        return algorithms.lex_rank(parser)
+        return models.lex_rank(parser)
     elif (algorithm == 'luhn'):
-        return algorithms.luhn(parser)
+        return models.luhn(parser)
     elif (algorithm == 'lsa'):
-        return algorithms.lsa(parser)
+        return models.lsa(parser)
 
 
 @app.route('/', methods=['GET', 'POST'])
