@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Summarization Web App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body>
+   <div class="container">
+       <h1 class="text-center">News Summarization Web App</h1>
+
+       <form method="POST">
+           <br>
+           <strong> Would like to paste URL or text directly ?</strong> <br>
+           <input type="radio" name="inputs" id="url" value="url"> URL </input><br>
+           <input type="radio" name="inputs" id="text" value="text"> Text </input><br>
+
+           <br> <br>
+
+           <strong> Which algorithm would you like to choose ?</strong> <br>
+
+           <input type="radio" name="algorithms" id="stopwords" value="stopwords"> Stopwords </input><br>
+           <input type="radio" name="algorithms" id="lexrank" value="lexrank"> LexRank </input><br>
+           <input type="radio" name="algorithms" id="luhn" value="luhn"> LUHN </input><br>
+           <input type="radio" name="algorithms" id="lsa" value="lsa"> LSA </input><br>
+
+           <br> <br>
+
+           <div class="form-group">
+               <h2> Input </h2>
+                <textarea class="form-control" id="text_input" name="text_input" rows="5"></textarea>
+           </div>
+
+           <br>
+
+           <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Summarize</button>
+            </div>
+           </div>
+
+       </form>
+       <br> <br> <br>
+
+       <div class="text-center">
+           {% if result  %}
+              <h2> Text Summary </h2>
+              <br> <br>
+              <h5> {{ result }} </h5>
+           {% endif %}
+       </div>
+     </div>
+</body>
+</html>
