@@ -1,6 +1,7 @@
 import re
 import os
 
+
 class Preprocessing(object):
     def __init__(self):
         self.stopwords = [line.rstrip('\n\r') for line in open(os.path.join(os.getcwd(), 'stopwords.txt'))]
